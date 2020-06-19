@@ -1,0 +1,6 @@
+1. Create nginx pod.
+2. Create nginx service to expose it internally.
+3. Verify if its DNS are resolving correctly using below approach,
+      1. kubectl run --generator=run-pod/v1 test-nslookup --image=busybox:1.28 --rm -it -- nslookup nginx
+      2. kubectl run --generator=run-pod/v1 test-nslookup --image=busybox:1.28 --run -it -- nslookup 10-32-0-5.default.pod
+      NOTE: Its the IP address of nginx pod.
